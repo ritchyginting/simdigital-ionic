@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pengajuan Perpanjangan SIM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+  </ion-refresher-content>
+</ion-refresher>
+
+<ion-card *ngFor="let pengajuan of pengajuanList">
+  <ion-label>
+    <h2><b>NAMA: </b> {{ pengajuan.nama }}</h2>
+    <h2>No HP: {{pengajuan.nohp}}</h2>
+    <ion-card-subtitle>Nomor SIM: {{pengajuan.nosim }}</ion-card-subtitle>
+    <ion-card-subtitle>Jenis SIM: {{pengajuan.jenissim}}</ion-card-subtitle>
+    <ion-card-subtitle>Email: {{pengajuan.email}}, </ion-card-subtitle>
+    <ion-card-subtitle>Tanggal Kedaluwarsa SIM: {{pengajuan.expiryDate}}</ion-card-subtitle>
+    <h2>Foto KTP: {{pengajuan.pilihfoto}}</h2>
+  </ion-label>
+</ion-card>
+
+<ion-infinite-scroll (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+  loadingSpinner="bubbles"
+  loadingText="Loading more data...">
+</ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>

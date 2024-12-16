@@ -1,0 +1,32 @@
+ion-content {
+    --background: none; /* Hilangkan warna default background */
+    background-image: url('/assets/img/home-background2.jpg'); /* Ganti path gambar sesuai lokasi */
+    background-size: cover; /* Pastikan gambar mengisi seluruh area */
+    background-position: center; /* Letakkan gambar di tengah */
+    background-repeat: no-repeat; /* Jangan ulangi gambar */
+    height: 100vh; /* Gunakan tinggi penuh layar */
+    width: 100vw; /* Gunakan lebar penuh layar */
+}
+
+ion-content {
+    display: flex; /* Gunakan Flexbox */
+    justify-content: center; /* Letakkan di tengah secara horizontal */
+    align-items: center; /* Letakkan di tengah secara vertikal */
+    height: 100vh; /* Pastikan tinggi elemen mencakup seluruh layar */
+    padding: 0;
+  }
+  
+  .container {
+    text-align: center; /* Atur teks di tengah */
+    background: rgba(255, 255, 255, 0.8); /* Opsional: Tambahkan latar belakang untuk keterbacaan */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .menu ion-button {
+    margin: 10px 0; /* Beri jarak antara tombol */
+  }
+  
+  h2 {
+    margin-bottom: 10px; /* Jarak bawah untuk heading */
+  }

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perpanjangan SIM ONLINE</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card class="welcome-card bg-content">
+    <ion-card-header>
+      <ion-card-title color="primary">Perpanjangan SIM ONLINE</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Silakan isikan form dibawah untuk Perpanjangan SIM ONLINE!.</p>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating"> Nama lengkap </ion-label>
+          <ion-input type="text" [(ngModel)]="nama"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"> Nomor HP/WA </ion-label>
+          <ion-input type="text" [(ngModel)]="nohp"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"> Nomor SIM </ion-label>
+          <ion-input type="email" [(ngModel)]="nosim"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"> Jenis SIM </ion-label>
+          <ion-select [(ngModel)]="jenissim" placeholder="Pilih Jenis SIM">
+            <ion-select-option value="a">SIM A</ion-select-option>
+            <ion-select-option value="b">SIM B</ion-select-option>
+            <ion-select-option value="c">SIM C</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating"> Email </ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Tanggal Kedaluwarsa SIM</ion-label>
+          <ion-button id="open-date-picker" expand="block">
+            {{ expiryDate || 'Pilih Tanggal' }}
+          </ion-button>
+        </ion-item>
+        
+        <ion-modal trigger="open-date-picker">
+          <ng-template>
+            <ion-content>
+              <ion-datetime
+                display-format="YYYY-MM-DD"
+                [(ngModel)]="expiryDate"
+                (ionChange)="closeModal()"
+              ></ion-datetime>
+              <ion-button expand="block" (click)="closeModal()">Selesai</ion-button>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+
+        <ion-item class="ion-padding">
+          <ion-button (click)="takePhoto()" expand="full" [disabled]="isLoading">
+            Take Photo & Upload
+          </ion-button>
+        
+          <div *ngIf="photo">
+            <h3>Preview Foto:</h3>
+            <img [src]="photo" alt="Captured Photo" style="width: 100%; margin-top: 10px;" />
+          </div>
+        
+          <ion-spinner *ngIf="isLoading"></ion-spinner>
+        </ion-item>
+        
+      </ion-list>
+      <div padding>
+        <ion-button expand="block" color="primary" size="medium" (click)="addRegister()"><ion-icon
+            name="trending-up-outline"></ion-icon>
+            Perpanjang SIM</ion-button>
+
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
