@@ -38,6 +38,7 @@
           <ion-label position="floating"> Email </ion-label>
           <ion-input type="email" [(ngModel)]="email"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label position="stacked">Tanggal Kedaluwarsa SIM</ion-label>
           <ion-button id="open-date-picker" expand="block">
@@ -58,14 +59,15 @@
           </ng-template>
         </ion-modal>
 
-        <ion-item class="ion-padding">
-          <ion-button (click)="takePhoto()" expand="full" [disabled]="isLoading">
-            Take Photo & Upload
+        <ion-item>
+          <ion-label position="stacked">Upload Foto KTP</ion-label>
+          <ion-button (click)="takePhoto()" expand="block" [disabled]="isLoading">
+            Upload Foto
           </ion-button>
         
           <div *ngIf="photo">
             <h3>Preview Foto:</h3>
-            <img [src]="photo" alt="Captured Photo" style="width: 100%; margin-top: 10px;" />
+            <img [src]="photo" alt="Captured Photo" style="width: 20%; margin-top: 10px;" />
           </div>
         
           <ion-spinner *ngIf="isLoading"></ion-spinner>
